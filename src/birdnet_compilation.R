@@ -447,6 +447,8 @@ AICctab(wv1,wv2,wv3,wv4,wv5,wv6, nobs = 34998, base=TRUE,delta=TRUE, sort=TRUE, 
 summary(wv6)
 # Running Water Supplementation SSWMA and CBMA Separately -----------------
 water_compiled$water_int2 = interaction(water_compiled$ws_site,water_compiled$water)
+water_compiled$water_int3 = interaction(water_compiled$ws_site,water_compiled$water,water_compiled$arid)
+
 sswma_water = water_compiled %>%
   dplyr::filter(site == "sswma")
 cbma_water = water_compiled %>%
