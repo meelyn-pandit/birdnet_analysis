@@ -1,0 +1,26 @@
+###BirdNET-Analyzer Docker Scripts###
+
+#mount external hard drive
+#docker -v /my/path:/mount/path
+docker -v /Volumes/LaCie/:/mount /Volumes/LaCie/
+
+#run docker script
+#docker run -v $PWD/example:/audio birdnet --i audio --o audio --slist audio
+docker run -v /Users/obs/BirdNET-Analyzer:/audio birdnet --i /Volumes/LaCie/aridity_project/lwma/lwma_aru01_test/ --o /Volumes/LaCie/aridity_project/lwma/lwma_aru01_test/ --lat 35.39651 --lon -101.97423 --sensitivity 1.5 --rtype "r" --min_conf 0.3
+
+python3 analyze.py --i /Volumes/LaCie/aridity_project/lwma/lwma_aru01_test/ --o /Volumes/LaCie/aridity_project/lwma/lwma_aru01_test/ --lat 35.39651 --lon -101.97423 --sensitivity 1.5 --rtype "r" --min_conf 0.3
+
+/Volumes/LaCie/aridity_project/lwma/lwma_aru01_test
+
+##need to include the word audio in the script
+#lwma script
+docker run -v /Volumes/LaCie/aridity_project/lwma/docker_audio_files:/audio birdnet --i audio --o audio --lat 35.061841 --lon -97.193914 --sensitivity 1.5 --rtype "r" --min_conf 0.3
+
+#cbma script
+docker run -v /Volumes/LaCie/aridity_project/cbma/docker_audio_files:/audio birdnet --i audio --o audio --lat 35.396508 --lon -101.974231 --sensitivity 1.5 --rtype "r" --min_conf 0.3
+
+#kiowa_script
+docker run -v /Volumes/LaCie/aridity_project/kiowa/docker_audio_files:/audio birdnet --i audio --o audio --lat 36.059134 --lon -104.335048 --sensitivity 1.5 --rtype "r" --min_conf 0.3
+
+#sswma_script
+docker run -v /Volumes/LaCie/aridity_project/sswma/docker_audio_files:/audio birdnet --i audio --o audio --lat 35.069568 --lon -99.839768 --sensitivity 1.5 --rtype "r" --min_conf 0.3
